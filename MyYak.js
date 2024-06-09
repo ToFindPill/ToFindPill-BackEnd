@@ -73,6 +73,17 @@ app.post('/api/auth/signup', async(req, res) => {
     res.json({ message: 'Signup successful', userId: newUser.username });
 });
 
+// 로그인 API
+app.post('/api/auth/login', async(req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user || !await bcrypt.compare(password, user.password)) {
+        return res.status(401).send({ message: 'Login failed' });
+    }
+    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
+    res.json({ message: 'Login successful', token });
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
