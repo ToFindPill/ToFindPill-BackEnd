@@ -1,0 +1,69 @@
+# Node modules 폴더
+node_modules/
+
+# 로그 파일들
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 환경설정 파일
+.env
+
+# 디렉토리 빌드 출력
+dist/
+build/
+
+# 로컬 환경에서만 사용하는 것들
+.DS_Store
+Thumbs.db
+
+# 잠금 파일
+package-lock.json
+yarn.lock
+
+# 작업 디렉토리에서 생성된 임시 파일
+*.swp
+*.swo
+*.tmp
+
+# OS별 파일
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IDE 관련 파일
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# npm 패키지
+*.tgz
+
+# 임시 파일
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+
+# coverage 디렉토리
+coverage/
+
+# .env 환경 파일
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# yarn v2
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
