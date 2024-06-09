@@ -64,6 +64,14 @@ const UserSchema = new mongoose.Schema({
 });
 const User = mongoose.model('MyYak_User', UserSchema);
 
+// 회원가입 API
+app.post('/api/auth/signup', async(req, res) => {
+    const { username, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ username, password: hashedPassword });
+    await newUser.save();
+    res.json({ message: 'Signup successful', userId: newUser.username });
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
